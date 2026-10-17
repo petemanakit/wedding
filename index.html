@@ -231,15 +231,24 @@ dl.kv dd{margin:0}
 @media (max-width:600px){.f-grid{grid-template-columns:1fr}.ev-row{grid-template-columns:1fr}}
 
 /* ---------- Gallery ---------- */
-.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;grid-auto-flow:dense}
-.gal figure{margin:0;background:var(--cream-2);border:1px solid var(--rule);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;max-width:100%}
-.gal figure.wide{grid-column:span 2;aspect-ratio:8/5}
-.gal figure img{width:100%;height:100%;object-fit:cover;display:block}
-.gal figure.art img{object-fit:contain;padding:8%}
-.gal figure.ph{flex-direction:column;gap:10px;color:var(--muted)}
-.gal figure.ph img{width:42px;height:auto;opacity:.55}
-.gal figcaption{font-family:var(--caps);font-size:10px;letter-spacing:.24em;text-transform:uppercase}
-@media (max-width:520px){.gal figure.wide{grid-column:span 1;aspect-ratio:4/5}}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.gal figure.g{margin:0;aspect-ratio:4/5;max-width:100%;overflow:hidden;position:relative;background:var(--cream-2);cursor:zoom-in;border:1px solid var(--rule)}
+.gal figure.g img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+.gal figure.g:hover img,.gal figure.g:focus-visible img{transform:scale(1.04)}
+.gal figure.g figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;font-family:var(--caps);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream);background:linear-gradient(to top,rgba(51,53,42,.55),rgba(51,53,42,0));opacity:0;transition:opacity .3s}
+.gal figure.g:hover figcaption,.gal figure.g:focus-visible figcaption{opacity:1}
+@media (max-width:520px){.gal{grid-template-columns:repeat(2,1fr);gap:10px}}
+@media (prefers-reduced-motion:reduce){.gal figure.g img{transition:none}}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(51,53,42,.94);display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 16px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 16px) max(16px,env(safe-area-inset-left,0px))}
+.lb figure{margin:0;max-width:min(1100px,100%);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:12px}
+.lb img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;display:block;box-shadow:0 30px 80px -30px rgba(0,0,0,.6)}
+.lb figcaption{font-family:var(--caps);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-pale)}
+.lb button{position:absolute;background:none;border:0;color:var(--cream);cursor:pointer;font-family:var(--body);line-height:1;padding:10px 16px}
+.lb-x{top:calc(env(safe-area-inset-top,0px) + 10px);right:max(10px,env(safe-area-inset-right,0px));font-size:40px}
+.lb-nav{top:50%;transform:translateY(-50%);font-size:64px;opacity:.8}
+.lb-nav.prev{left:max(4px,env(safe-area-inset-left,0px))}.lb-nav.next{right:max(4px,env(safe-area-inset-right,0px))}
+.lb button:hover{color:var(--gold-light)}
+@media (max-width:600px){.lb-nav{font-size:48px;top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 6px);transform:none}}
 
 /* ---------- FAQ ---------- */
 .faq details{border-bottom:1px solid var(--rule);padding:4px 0}
@@ -489,17 +498,29 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
             <h2 class="script">Gallery</h2>
             <div class="ornament">❦</div>
           </div>
-          <div class="gal" style="margin-top:28px">
-            <figure class="wide art"><img src="assets/garden.jpg" alt="Watercolour of the proposal at San Ysidro Ranch"></figure>
-            <figure class="ph"><img src="assets/monogram.webp" alt=""><figcaption>Engagement · to come</figcaption></figure>
-            <figure class="ph"><img src="assets/monogram.webp" alt=""><figcaption>Pat · to come</figcaption></figure>
-            <figure class="wide art" style="background:var(--cream)"><img src="assets/custom-house.webp" alt="Watercolour of The Langham, Custom House, Bangkok"></figure>
-            <figure class="ph"><img src="assets/monogram.webp" alt=""><figcaption>Pete · to come</figcaption></figure>
-            <figure class="ph"><img src="assets/monogram.webp" alt=""><figcaption>The Corniche · to come</figcaption></figure>
-            <figure class="ph"><img src="assets/monogram.webp" alt=""><figcaption>Santa Barbara · to come</figcaption></figure>
+          <div class="gal" id="gal" style="margin-top:28px">
+            <figure class="g" tabindex="0" data-i="0"><img src="assets/gallery/proposal-04.jpg" alt="A walk through the rose garden" loading="lazy"><figcaption>A walk through the rose garden</figcaption></figure>
+            <figure class="g" tabindex="0" data-i="1"><img src="assets/gallery/proposal-09.jpg" alt="The question" loading="lazy"><figcaption>The question</figcaption></figure>
+            <figure class="g" tabindex="0" data-i="2"><img src="assets/gallery/proposal-10.jpg" alt="The answer" loading="lazy"><figcaption>The answer</figcaption></figure>
+            <figure class="g" tabindex="0" data-i="3"><img src="assets/gallery/proposal-11.jpg" alt="Yes" loading="lazy"><figcaption>Yes</figcaption></figure>
+            <figure class="g" tabindex="0" data-i="4"><img src="assets/gallery/proposal-08.jpg" alt="Under the arch" loading="lazy"><figcaption>Under the arch</figcaption></figure>
+            <figure class="g" tabindex="0" data-i="5"><img src="assets/gallery/proposal-01.jpg" alt="San Ysidro Ranch" loading="lazy"><figcaption>San Ysidro Ranch</figcaption></figure>
+            <figure class="g" tabindex="0" data-i="6"><img src="assets/gallery/proposal-02.jpg" alt="Santa Barbara, 6th April 2026" loading="lazy"><figcaption>Santa Barbara, 6th April 2026</figcaption></figure>
+            <figure class="g" tabindex="0" data-i="7"><img src="assets/gallery/proposal-03.jpg" alt="Bougainvillea" loading="lazy"><figcaption>Bougainvillea</figcaption></figure>
+            <figure class="g" tabindex="0" data-i="8"><img src="assets/gallery/proposal-12.jpg" alt="The Stonehouse" loading="lazy"><figcaption>The Stonehouse</figcaption></figure>
+            <figure class="g" tabindex="0" data-i="9"><img src="assets/gallery/proposal-07.jpg" alt="Afternoon light" loading="lazy"><figcaption>Afternoon light</figcaption></figure>
+            <figure class="g" tabindex="0" data-i="10"><img src="assets/gallery/proposal-05.jpg" alt="The first photograph" loading="lazy"><figcaption>The first photograph</figcaption></figure>
+            <figure class="g" tabindex="0" data-i="11"><img src="assets/gallery/proposal-06.jpg" alt="The ring" loading="lazy"><figcaption>The ring</figcaption></figure>
+            <figure class="g" tabindex="0" data-i="12"><img src="assets/gallery/proposal-13.jpg" alt="Lunch at the Ranch" loading="lazy"><figcaption>Lunch at the Ranch</figcaption></figure>
           </div>
           <p class="small center" style="margin-top:30px">After the wedding this page will carry the photographs from the day, and a link for you to add your own.</p>
         </div>
+      </div>
+      <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photograph">
+        <button class="lb-x" id="lbClose" aria-label="Close">×</button>
+        <button class="lb-nav prev" id="lbPrev" aria-label="Previous">‹</button>
+        <figure><img id="lbImg" src="" alt=""><figcaption id="lbCap"></figcaption></figure>
+        <button class="lb-nav next" id="lbNext" aria-label="Next">›</button>
       </div>
     </section>
 
@@ -687,6 +708,22 @@ document.addEventListener("click", e => {
   }
 });
 
+
+
+/* ---- gallery lightbox ---- */
+(function(){
+  const figs = $$("#gal figure.g"); if (!figs.length) return;
+  const lb = $("#lb"), img = $("#lbImg"), cap = $("#lbCap"); let cur = 0, lastFocus = null;
+  function show(i){ cur = (i + figs.length) % figs.length; const f = figs[cur].querySelector("img"); img.src = f.src; img.alt = f.alt; cap.textContent = f.alt; }
+  function open(i){ lastFocus = document.activeElement; show(i); lb.hidden = false; document.body.style.overflow = "hidden"; $("#lbClose").focus(); }
+  function close(){ lb.hidden = true; document.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); }
+  figs.forEach((f, i) => { f.addEventListener("click", () => open(i)); f.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(i); } }); });
+  $("#lbClose").addEventListener("click", close); $("#lbPrev").addEventListener("click", () => show(cur - 1)); $("#lbNext").addEventListener("click", () => show(cur + 1));
+  lb.addEventListener("click", e => { if (e.target === lb) close(); });
+  document.addEventListener("keydown", e => { if (lb.hidden) return; if (e.key === "Escape") close(); if (e.key === "ArrowLeft") show(cur - 1); if (e.key === "ArrowRight") show(cur + 1); });
+  let x0 = null; lb.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1)); x0 = null; });
+})();
 
 /* ---- countdown ---- */
 function tick(){
