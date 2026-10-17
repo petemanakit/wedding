@@ -165,6 +165,24 @@ p.lead{font-size:22px;line-height:1.5}
 .dress .d p{margin:0}
 
 
+
+/* ---------- Schedule bands ---------- */
+.sched-head{padding-block:64px 44px}
+.day-band{padding-block:56px}
+.day-band[data-tier="3"][hidden] + .day-band.sunday{background:var(--cream-2)}
+.day-head{border-bottom:1px solid var(--gold)}
+.tl li.key .ev{display:grid;grid-template-columns:56px 1fr;grid-template-rows:auto auto auto;column-gap:18px}
+.tl li.key .ev .ico{grid-row:1 / span 3;width:52px;height:52px;color:var(--gold);margin-top:2px}
+.tl li.key .ev h4,.tl li.key .ev .loc,.tl li.key .ev p{grid-column:2}
+@media (max-width:560px){.tl li.key .ev{grid-template-columns:44px 1fr;column-gap:14px}.tl li.key .ev .ico{width:40px;height:40px}}
+.attire{padding-block:64px 72px}
+.attire .ornament{color:var(--gold-light)}
+.attire .ornament::before,.attire .ornament::after{background:var(--gold-light)}
+.attire .dress{margin-top:30px;gap:26px 40px}
+.attire .dress .d{border-top:1px solid rgba(201,172,103,.45);padding-top:16px}
+.attire .dress .d h4{color:var(--gold-pale)}
+.attire .dress .d p{color:var(--cream)}
+
 /* ---------- Venue hero (Travel page) ---------- */
 .venue-hero{position:relative;height:clamp(360px,58vh,640px);overflow:hidden;background:var(--green-deep)}
 .venue-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:sepia(.35) contrast(1.05) brightness(.95)}
@@ -272,7 +290,7 @@ dl.kv dd{margin:0}
 .faq details[open] summary::after{content:"\2013"}
 .faq details p{margin:0 0 18px;color:var(--ink)}
 
-footer{background:var(--green);color:var(--cream);text-align:center;padding-block:56px;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+footer{background:var(--green);color:var(--cream);text-align:center;border-top:1px solid rgba(201,172,103,.35);padding-block:56px;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
 footer img{width:84px;height:auto;margin-bottom:18px}
 footer .n{font-family:var(--script);font-size:38px;color:var(--cream)}
 footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top:10px;color:var(--gold-pale)}
@@ -366,39 +384,47 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
 
     <!-- Schedule -->
     <section class="page" id="page-schedule" role="tabpanel">
-      <div class="band">
+      <div class="band sched-head">
+        <div class="wrap narrow center">
+          <p class="eyebrow">Order of the day</p>
+          <h2 class="script">Schedule</h2>
+          <div class="ornament">❦</div>
+        </div>
+      </div>
+
+      <div class="band tint day-band" data-tier="3">
+        <div class="wrap narrow">
+          <div class="day-head"><h3>Saturday</h3><div class="caps-line">16th January 2027 · The eve</div></div>
+          <ul class="tl">
+            <li class="key"><time>5.30 PM</time><div class="ev"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 37h54"/><path d="M11 37v16M53 37v16M11 46h42"/><ellipse cx="20" cy="33" rx="5" ry="2"/><ellipse cx="32" cy="33" rx="5" ry="2"/><ellipse cx="44" cy="33" rx="5" ry="2"/><path d="M27 29v-6l5-3 5 3v6"/><path d="M32 20v-5"/><path d="M30 13c0-2 2-3 2-5 0 2 2 3 2 5a2 2 0 0 1-4 0z"/><path d="M12 30v-4M52 30v-4"/><path d="M10 26c0-1 .9-2 2-2s2 .9 2 2M50 26c0-1 .9-2 2-2s2 .9 2 2"/></svg><h4>Rehearsal dinner</h4><div class="loc">Heritage Ballroom · The Langham, Custom House · Black tie</div><p>An intimate dinner for family and the wedding party on the evening before, in the same ballroom where we will celebrate the following night.</p></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="band day-band sunday" data-tier="1">
+        <div class="wrap narrow">
+          <div class="day-head"><h3>Sunday</h3><div class="caps-line">17th January 2027 · The wedding</div></div>
+          <ul class="tl">
+            <li class="key" data-tier="2"><time>4.30 PM</time><div class="ev"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="12" r="4"/><path d="M26 30v-8a6 6 0 0 1 12 0v8"/><path d="M27 30h10"/><circle cx="18" cy="22" r="4"/><path d="M11 56V40l-2 2 1-11a8 8 0 0 1 16 0l1 11-2-2v16"/><path d="M14 56h8"/><circle cx="46" cy="22" r="4"/><path d="M40 56l-1-24a7 7 0 0 1 14 0l-1 24"/><path d="M36 56h20"/><path d="M26 38h12"/><circle cx="32" cy="38" r="1.2" fill="currentColor"/></svg><h4>Vow ceremony</h4><div class="loc">Riverside Lawn · The Langham, Custom House</div><p>Please be seated by 4.15 PM. We will exchange our vows on the lawn by the river as the afternoon light softens, followed by a glass of champagne before the evening begins.</p></div></li>
+            <li class="key"><time>6.30 PM</time><div class="ev"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8l10 2c3 9 1 18-4 23l-1 1-3 16-6 2h14l-5-2 1-16-1-1C12 29 11 19 14 8z"/><path d="M50 8l-10 2c-3 9-1 18 4 23l1 1 3 16 6 2H40l5-2-1-16 1-1c7-4 8-14 5-25z"/><path d="M16 20c3 .5 6 .3 8-1M48 20c-3 .5-6 .3-8-1"/><circle cx="19" cy="14" r="1" fill="currentColor"/><circle cx="21" cy="26" r=".9" fill="currentColor"/><circle cx="45" cy="14" r="1" fill="currentColor"/><circle cx="43" cy="26" r=".9" fill="currentColor"/><path d="M32 10v-4M28 13l-2-3M36 13l2-3"/></svg><h4>Cocktail reception</h4><div class="loc">Heritage Ballroom &amp; Heritage Hall · Third floor</div><p>Doors open at 6.30 PM. Cocktails, canapés and the river at sunset.</p></div></li>
+            <li><time>7.00 PM</time><div class="ev"><h4>Grand entrance &amp; dinner</h4><div class="loc">Heritage Ballroom</div><p>A cocktail dinner across the ballroom and the hall, with toasts from our families and friends.</p></div></li>
+            <li><time>8.15 PM</time><div class="ev"><h4>Cake cutting</h4><div class="loc">The grand staircase</div><p>On the landing between the second and third floors, so that every guest has a view.</p></div></li>
+            <li><time>10.00 PM</time><div class="ev"><h4>After-party</h4><div class="loc">Heritage Ballroom · until 2.00 AM</div><p>The band gives way to the DJ. Dancing shoes encouraged; carriages at two.</p></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="band green attire">
         <div class="wrap narrow">
           <div class="center">
-            <p class="eyebrow">Order of the day</p>
-            <h2 class="script">Schedule</h2>
+            <p class="eyebrow">Attire</p>
+            <h2 class="script">Black tie throughout</h2>
             <div class="ornament">❦</div>
           </div>
-
-          <div class="day" data-tier="3">
-            <div class="day-head"><h3>Saturday</h3><div class="caps-line">16th January 2027 · The eve</div></div>
-            <ul class="tl">
-              <li><time>5.30 PM</time><div class="ev"><h4>Rehearsal dinner</h4><div class="loc">Heritage Ballroom · The Langham, Custom House · Black tie</div><p>An intimate dinner for family and the wedding party on the evening before, in the same ballroom where we will celebrate the following night.</p></div></li>
-            </ul>
-          </div>
-
-          <div class="day" data-tier="1">
-            <div class="day-head"><h3>Sunday</h3><div class="caps-line">17th January 2027 · The wedding</div></div>
-            <ul class="tl">
-              <li data-tier="2"><time>4.30 PM</time><div class="ev"><h4>Vow ceremony</h4><div class="loc">Riverside Lawn · The Langham, Custom House</div><p>Please be seated by 4.15 PM. We will exchange our vows on the lawn by the river as the afternoon light softens, followed by a glass of champagne before the evening begins.</p></div></li>
-              <li><time>6.30 PM</time><div class="ev"><h4>Cocktail reception</h4><div class="loc">Heritage Ballroom &amp; Heritage Hall · Third floor</div><p>Doors open at 6.30 PM. Cocktails, canapés and the river at sunset.</p></div></li>
-              <li><time>7.00 PM</time><div class="ev"><h4>Grand entrance &amp; dinner</h4><div class="loc">Heritage Ballroom</div><p>A cocktail dinner across the ballroom and the hall, with toasts from our families and friends.</p></div></li>
-              <li><time>8.15 PM</time><div class="ev"><h4>Cake cutting</h4><div class="loc">The grand staircase</div><p>On the landing between the second and third floors, so that every guest has a view.</p></div></li>
-              <li><time>10.00 PM</time><div class="ev"><h4>After-party</h4><div class="loc">Heritage Ballroom · until 2.00 AM</div><p>The band gives way to the DJ. Dancing shoes encouraged; carriages at two.</p></div></li>
-            </ul>
-          </div>
-
-          <div class="day">
-            <div class="day-head"><h3>Attire</h3><div class="caps-line">Black tie throughout</div></div>
-            <div class="dress">
-              <div class="d" data-tier="2"><h4>Vow ceremony · 4.30 PM</h4><p>Black tie, the same as the evening, so that we move from the lawn to the ballroom without a change of dress. The lawn is grass, so a block heel is kinder than a stiletto.</p></div>
-              <div class="d"><h4>Gentlemen</h4><p>Black tie means a tuxedo: a dinner jacket with satin or grosgrain lapels, a bow tie and a white dress shirt. A dark lounge suit with a black necktie is not quite the same, and we would love to see you in the real thing.</p></div>
-              <div class="d"><h4>Ladies</h4><p>Elegant evening gown, floor length preferred. January evenings by the river are pleasantly cool, around 24 °C, so a wrap is welcome but not essential.</p></div>
-            </div>
+          <div class="dress">
+            <div class="d" data-tier="2"><h4>Vow ceremony · 4.30 PM</h4><p>Black tie, the same as the evening, so that we move from the lawn to the ballroom without a change of dress. The lawn is grass, so a block heel is kinder than a stiletto.</p></div>
+            <div class="d"><h4>Gentlemen</h4><p>Black tie means a tuxedo: a dinner jacket with satin or grosgrain lapels, a bow tie and a white dress shirt. A dark lounge suit with a black necktie is not quite the same, and we would love to see you in the real thing.</p></div>
+            <div class="d"><h4>Ladies</h4><p>Elegant evening gown, floor length preferred. January evenings by the river are pleasantly cool, around 24 °C, so a wrap is welcome but not essential.</p></div>
           </div>
         </div>
       </div>
