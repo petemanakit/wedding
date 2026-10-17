@@ -123,19 +123,18 @@ p.lead{font-size:22px;line-height:1.5}
 
 
 /* ---------- Welcome hero (full-bleed, pinned, fades on scroll) ---------- */
-.hero-x{height:175svh;position:relative;--p:0}
-.hero-sticky{position:sticky;top:0;height:100svh;overflow:hidden;background:var(--cream)}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%;transform:scale(calc(1 + var(--p) * .08));opacity:calc(1 - var(--p) * .85);transform-origin:center 60%;will-change:transform,opacity}
+.hero-x{height:100svh;min-height:560px;position:relative}
+.hero-sticky{position:relative;height:100%;overflow:hidden;background:var(--cream)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%}
 @media (orientation:portrait){.hero-bg{object-fit:contain;object-position:center 42%}}
 .hero-veil{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(247,244,238,0) 38%,rgba(247,244,238,.82) 64%,var(--cream) 82%);pointer-events:none}
-.hero-veil::after{content:"";position:absolute;inset:0;background:var(--cream);opacity:calc(var(--p) * .9)}
-.hero-text{position:absolute;left:0;right:0;bottom:max(6vh,32px);text-align:center;padding-left:var(--gutter-l);padding-right:var(--gutter-r);transform:translateY(calc(var(--p) * -14vh));opacity:calc(1 - var(--p) * 1.25);will-change:transform,opacity}
+.hero-text{position:absolute;left:0;right:0;bottom:max(6vh,32px);text-align:center;padding-left:var(--gutter-l);padding-right:var(--gutter-r);}
 .hero-text p{margin-left:auto;margin-right:auto}
 .hero .names,.hero-text .names{margin-top:4px}
 .scroll-cue{width:1px;height:46px;margin:30px auto 0;background:linear-gradient(var(--gold),transparent);position:relative;overflow:hidden}
 .scroll-cue span{position:absolute;left:0;top:-46px;width:1px;height:46px;background:var(--green);animation:cue 2.2s ease-in-out infinite}
 @keyframes cue{to{top:46px}}
-@media (prefers-reduced-motion:reduce){.scroll-cue span{animation:none}.hero-bg,.hero-text{transition:none}}
+@media (prefers-reduced-motion:reduce){.scroll-cue span{animation:none}}
 @media (max-height:560px){.hero-text{bottom:12px}.countdown{margin-top:18px}}
 
 /* ---------- Story ---------- */
@@ -670,7 +669,6 @@ function go(name, push=true){
   $$('nav.tabs [role="tab"]').forEach(b => b.setAttribute("aria-selected", String(b.dataset.go === name)));
   if (push) { try { history.replaceState(null, "", "#" + name); } catch(e){} }
   window.scrollTo({ top: 0, behavior: "auto" });
-  if (window.heroUpdate) requestAnimationFrame(window.heroUpdate);
   const tab = $(`nav.tabs [data-go="${name}"]`); if (tab && tab.scrollIntoView) tab.scrollIntoView({ block: "nearest", inline: "center" });
 }
 document.addEventListener("click", e => {
@@ -685,21 +683,6 @@ document.addEventListener("click", e => {
   }
 });
 
-
-/* ---- hero scroll transition ---- */
-(function(){
-  const hero = $("#heroX"); if (!hero) return;
-  let ticking = false;
-  function update(){
-    ticking = false;
-    const total = hero.offsetHeight - window.innerHeight; if (total <= 0) { hero.style.setProperty("--p", 0); return; }
-    const y = Math.min(Math.max(-hero.getBoundingClientRect().top, 0), total);
-    hero.style.setProperty("--p", (y / total).toFixed(4));
-  }
-  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
-  addEventListener("resize", update); update();
-  window.heroUpdate = update;
-})();
 
 /* ---- countdown ---- */
 function tick(){
