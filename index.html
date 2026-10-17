@@ -148,6 +148,16 @@ p.lead{font-size:22px;line-height:1.5}
 .dress .d h4{margin:0 0 6px;font-family:var(--caps);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--green)}
 .dress .d p{margin:0}
 
+
+/* ---------- Venue hero (Travel page) ---------- */
+.venue-hero{position:relative;height:clamp(360px,58vh,640px);overflow:hidden;background:var(--green-deep)}
+.venue-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:sepia(.35) contrast(1.05) brightness(.95)}
+.venue-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(74,78,56,.15) 0%,rgba(74,78,56,.1) 45%,rgba(74,78,56,.78) 100%)}
+.vh-text{position:absolute;left:0;right:0;bottom:0;z-index:1;text-align:center;padding-bottom:40px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);color:var(--cream)}
+.vh-text .eyebrow{color:var(--gold-pale)}
+.vh-text h2.script{color:var(--cream);text-shadow:0 1px 12px rgba(0,0,0,.25)}
+.vh-text .caps-line{color:var(--cream);font-size:11px;margin-top:12px;line-height:1.9;opacity:.9}
+
 /* ---------- Travel ---------- */
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px 56px}
 .cols > div{min-width:0}
@@ -363,14 +373,17 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
 
     <!-- Travel -->
     <section class="page" id="page-travel" role="tabpanel">
+      <div class="venue-hero">
+        <img src="assets/custom-house-1890.jpg" alt="The Custom House on the Chao Phraya River, photographed around 1890, with crowds along the riverside">
+        <div class="vh-text">
+          <p class="eyebrow">Travel &amp; Stay</p>
+          <h2 class="script">The Custom House</h2>
+          <div class="caps-line">Built 1888 on the Chao Phraya · Now The Langham, Custom House, Bangkok</div>
+        </div>
+      </div>
       <div class="band">
         <div class="wrap">
-          <div class="center">
-            <p class="eyebrow">Getting there</p>
-            <h2 class="script">Travel &amp; Stay</h2>
-            <div class="ornament">❦</div>
-          </div>
-          <div class="cols" style="margin-top:28px">
+          <div class="cols">
             <div>
               <h3 class="caps">The venue</h3>
               <div class="addr"><b>The Langham, Custom House, Bangkok</b><br>300 Trok Rong Phasi, Charoen Krung Soi 36<br>Bang Rak, Bangkok 10500</div>
