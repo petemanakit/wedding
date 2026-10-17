@@ -155,6 +155,9 @@ p.lead{font-size:22px;line-height:1.5}
 .venue-hero{position:relative;height:clamp(360px,58vh,640px);overflow:hidden;background:var(--green-deep)}
 .venue-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:sepia(.35) contrast(1.05) brightness(.95)}
 .venue-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(74,78,56,.15) 0%,rgba(74,78,56,.1) 45%,rgba(74,78,56,.78) 100%)}
+.venue-hero::before{content:"";position:absolute;inset:0 0 auto;height:150px;z-index:1;background:linear-gradient(to bottom,rgba(74,78,56,.72),rgba(74,78,56,0))}
+.vh-top{position:absolute;top:0;left:0;right:0;z-index:2;text-align:center;padding-top:28px;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.vh-top .eyebrow{color:var(--gold-pale);font-size:12px;margin:0}
 .vh-text{position:absolute;left:0;right:0;bottom:0;z-index:1;text-align:center;padding-bottom:40px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);color:var(--cream)}
 .vh-text .eyebrow{color:var(--gold-pale)}
 .vh-text h2.script{color:var(--cream);text-shadow:0 1px 12px rgba(0,0,0,.25)}
@@ -382,8 +385,8 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
     <section class="page" id="page-travel" role="tabpanel">
       <div class="venue-hero">
         <img src="assets/custom-house-1890.jpg" alt="The Custom House on the Chao Phraya River, photographed around 1890, with crowds along the riverside">
+        <div class="vh-top"><p class="eyebrow">Travel &amp; Stay</p></div>
         <div class="vh-text">
-          <p class="eyebrow">Travel &amp; Stay</p>
           <h2 class="script">The Custom House</h2>
           <div class="caps-line">Built 1888 on the Chao Phraya · Now The Langham, Custom House, Bangkok</div>
         </div>
