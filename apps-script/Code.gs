@@ -17,6 +17,7 @@ function sheet_() {
     sh.appendRow(HEADERS);
     sh.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold').setBackground('#595D44').setFontColor('#F7F4EE');
     sh.setFrozenRows(1);
+    sh.setColumnWidths(1, HEADERS.length, 160); sh.setColumnWidth(12, 320);
     ensureSummary_(ss);
   }
   return sh;
@@ -46,7 +47,10 @@ function doPost(e) {
       p.rehearsal || '', p.vow || '', p.evening || '',
       Number(p.headcount || 0), p.dietary || '', p.message || '', p.kind || 'New'
     ];
-    sheet_().appendRow(row);
+    const sh = sheet_(); const r = sh.getLastRow() + 1;
+    sh.getRange(r, 2, 1, HEADERS.length - 1).setNumberFormat('@'); // text, so '+66…' is never read as a formula
+    sh.getRange(r, 10).setNumberFormat('0');
+    sh.getRange(r, 1, 1, row.length).setValues([row]);
     notify_(p);
     return json_({ ok: true });
   } catch (err) {

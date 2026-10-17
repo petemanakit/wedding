@@ -615,7 +615,8 @@ $("#rsvpForm").addEventListener("submit", async (e) => {
   note.classList.remove("err");
   if (!form.checkValidity()) { form.reportValidity(); note.textContent = "Please complete the highlighted fields and choose a reply for each event."; note.classList.add("err"); return; }
   if (!CONFIG.rsvpEndpoint) return;
-  const data = new URLSearchParams(new FormData(form));
+  const data = new URLSearchParams();
+  for (const [k, v] of new FormData(form)) data.set(k, /^[=+\-@]/.test(String(v)) ? " " + v : v); // keep Sheets from reading "+66…" as a formula
   data.set("tier", String(tier)); data.set("kind", store.get("pp-rsvp-sent") ? "Update" : "New");
   btn.disabled = true; btn.textContent = "Sending…"; note.textContent = "";
   try {
