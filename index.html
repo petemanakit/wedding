@@ -212,7 +212,11 @@ dl.kv dd{margin:0}
 .hotels li figure{margin:0;aspect-ratio:3/2;max-width:100%;overflow:hidden;background:var(--cream-2)}
 .hotels li figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
 .hotels li:hover figure img{transform:scale(1.03)}
-.hotels li > div{padding:16px 20px 0}
+.hotels li > a{display:block;color:inherit;text-decoration:none;height:100%}
+.hotels li > a:hover{text-decoration:none}
+.hotels li > a > div{padding:16px 20px 0}
+.hotels li .visit{display:block;padding:12px 20px 0;font-family:var(--caps);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.hotels li > a:hover .visit{text-decoration:underline;text-underline-offset:3px}
 @media (prefers-reduced-motion:reduce){.hotels li figure img{transition:none}}
 .hotels li b{display:block;font-weight:600;font-size:21px;color:var(--green)}
 .hotels li span{display:block;font-family:var(--caps);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:6px}
@@ -463,12 +467,12 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
             <h3 class="caps">Where to stay</h3>
             <p>The Langham has 75 rooms and suites and will be newly opened in January. A special room rate has been arranged for our guests. To reserve, please write directly to Khun Aom (Sumittra Smatthanawin), Director of Catering &amp; Event Sales, at <span class="addr-line">sumittra.s@langhamhotels.com</span>, mentioning the Pat &amp; Pete wedding on 17th January. The riverside also offers these fine neighbours, all within ten minutes of the Custom House.</p>
             <ul class="hotels">
-              <li><figure><img src="assets/hotel-langham.jpg" alt="The Langham, Custom House, Bangkok lit at night on the Chao Phraya" loading="lazy"></figure><div><b>The Langham, Custom House</b><span>Venue · Charoen Krung 36</span><em>Wedding rate: e-mail Khun Aom</em></div></li>
-              <li><figure><img src="assets/hotel-mandarin-oriental.jpg" alt="Mandarin Oriental, Bangkok from the river at dusk" loading="lazy"></figure><div><b>Mandarin Oriental</b><span>Oriental Avenue · 3 min</span><em>The grande dame of the river</em></div></li>
-              <li><figure><img src="assets/hotel-shangri-la.jpg" alt="Shangri-La Bangkok on the riverbank at night" loading="lazy"></figure><div><b>Shangri-La Bangkok</b><span>Saphan Taksin · 5 min</span><em>Largest choice of rooms, BTS at the door</em></div></li>
-              <li><figure><img src="assets/hotel-capella.jpg" alt="Capella Bangkok seen across the river" loading="lazy"></figure><div><b>Capella Bangkok</b><span>Charoen Krung · 8 min</span><em>Contemporary, riverside villas and suites</em></div></li>
-              <li><figure><img src="assets/hotel-four-seasons.jpg" alt="Four Seasons Hotel Bangkok at Chao Phraya River terrace and skyline" loading="lazy"></figure><div><b>Four Seasons at Chao Phraya</b><span>Charoen Krung · 8 min</span><em>Next to Capella, extensive gardens</em></div></li>
-              <li><figure><img src="assets/hotel-peninsula.jpg" alt="The Peninsula Bangkok tower across the Chao Phraya" loading="lazy"></figure><div><b>The Peninsula Bangkok</b><span>Thonburi bank · 10 min</span><em>Across the river, every room faces the water</em></div></li>
+              <li><a href="https://www.langhamhotels.com/en/the-langham/bangkok/" target="_blank" rel="noopener"><figure><img src="assets/hotel-langham.jpg" alt="The Langham, Custom House, Bangkok lit at night on the Chao Phraya" loading="lazy"></figure><div><b>The Langham, Custom House</b><span>Venue · Charoen Krung 36</span><em>Wedding rate: e-mail Khun Aom</em></div><span class="visit">Visit website</span></a></li>
+              <li><a href="https://www.mandarinoriental.com/en/bangkok/chao-phraya-river" target="_blank" rel="noopener"><figure><img src="assets/hotel-mandarin-oriental.jpg" alt="Mandarin Oriental, Bangkok from the river at dusk" loading="lazy"></figure><div><b>Mandarin Oriental</b><span>Oriental Avenue · 3 min</span><em>The grande dame of the river</em></div><span class="visit">Visit website</span></a></li>
+              <li><a href="https://www.shangri-la.com/bangkok/shangrila/" target="_blank" rel="noopener"><figure><img src="assets/hotel-shangri-la.jpg" alt="Shangri-La Bangkok on the riverbank at night" loading="lazy"></figure><div><b>Shangri-La Bangkok</b><span>Saphan Taksin · 5 min</span><em>Largest choice of rooms, BTS at the door</em></div><span class="visit">Visit website</span></a></li>
+              <li><a href="https://capellahotels.com/en/capella-bangkok" target="_blank" rel="noopener"><figure><img src="assets/hotel-capella.jpg" alt="Capella Bangkok seen across the river" loading="lazy"></figure><div><b>Capella Bangkok</b><span>Charoen Krung · 8 min</span><em>Contemporary, riverside villas and suites</em></div><span class="visit">Visit website</span></a></li>
+              <li><a href="https://www.fourseasons.com/bangkok/" target="_blank" rel="noopener"><figure><img src="assets/hotel-four-seasons.jpg" alt="Four Seasons Hotel Bangkok at Chao Phraya River terrace and skyline" loading="lazy"></figure><div><b>Four Seasons at Chao Phraya</b><span>Charoen Krung · 8 min</span><em>Next to Capella, extensive gardens</em></div><span class="visit">Visit website</span></a></li>
+              <li><a href="https://www.peninsula.com/en/bangkok/5-star-luxury-hotel-riverside" target="_blank" rel="noopener"><figure><img src="assets/hotel-peninsula.jpg" alt="The Peninsula Bangkok tower across the Chao Phraya" loading="lazy"></figure><div><b>The Peninsula Bangkok</b><span>Thonburi bank · 10 min</span><em>Across the river, every room faces the water</em></div><span class="visit">Visit website</span></a></li>
             </ul>
           </div>
 
