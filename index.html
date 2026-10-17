@@ -233,6 +233,8 @@ footer{background:var(--green);color:var(--cream);text-align:center;padding-bloc
 footer img{width:84px;height:auto;margin-bottom:18px}
 footer .n{font-family:var(--script);font-size:38px;color:var(--cream)}
 footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top:10px;color:var(--gold-pale)}
+.nowrap{white-space:nowrap}
+@media (max-width:640px){footer .d .sep{display:none}footer .d span{display:block}footer .d .nowrap{margin-top:8px}}
 
 @media (prefers-reduced-motion:no-preference){
   .page.active{animation:fade .5s ease both}
@@ -505,7 +507,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
   <footer>
     <img src="assets/monogram.webp" alt="">
     <div class="n">Pat <span class="amp2">&amp;</span> Pete</div>
-    <div class="d">The Langham, Custom House, Bangkok · 17 . 01 . 2027</div>
+    <div class="d"><span>The Langham, Custom House, Bangkok</span><span class="sep"> · </span><span class="nowrap">17 . 01 . 2027</span></div>
   </footer>
 </div>
 
