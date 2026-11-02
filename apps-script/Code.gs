@@ -1,5 +1,5 @@
 /**
- * Pat & Pete RSVP endpoint (v3: guest confirmation e-mail with e-cards).
+ * Pat & Pete RSVP endpoint (v3.1: guest confirmation e-mail with e-cards; run testCards() once from the editor).
  * Paste into the Google Sheet: Extensions > Apps Script, then Deploy > Manage deployments > pencil > New version > Deploy.
  */
 const SHEET_NAME = 'Responses';
@@ -60,7 +60,7 @@ function doPost(e) {
     const p = (e && e.parameter) || {};
     if (p.website) return json_({ ok: true }); // honeypot filled: silently ignore
     let confirmation = '';
-    try { confirmation = confirmGuest_(p) ? 'Sent' : 'No e-mail'; } catch (err) { confirmation = 'Failed: ' + err; }
+    try { confirmation = confirmGuest_(p) || 'No e-mail'; } catch (err) { confirmation = 'Failed: ' + err; }
     const row = [
       new Date(), p.tier || '', p.household || '', p.guests || '', p.email || '', p.phone || '',
       p.rehearsal || '', p.vow || '', p.evening || '',
@@ -148,16 +148,26 @@ function confirmGuest_(p) {
     '\n\nWebsite: ' + SITE_URL + '\n\nWith love, Pat & Pete';
 
   // attach only the e-cards for the events this guest is invited to
-  const attachments = [];
+  const attachments = []; const problems = [];
   invited.forEach(function (ev) {
     try {
       const res = UrlFetchApp.fetch(ASSET_BASE + ev.card, { muteHttpExceptions: true });
       if (res.getResponseCode() === 200) attachments.push(res.getBlob().setName(ev.cardName));
-    } catch (err) { /* skip a card that cannot be fetched; the e-mail still goes */ }
+      else problems.push(ev.card + ' HTTP ' + res.getResponseCode());
+    } catch (err) { problems.push(ev.card + ': ' + err); }
   });
 
   MailApp.sendEmail({ to: to, subject: subject, htmlBody: html, body: text, name: FROM_NAME, replyTo: REPLY_TO, attachments: attachments });
-  return true;
+  return 'Sent (' + attachments.length + ' of ' + invited.length + ' cards' + (problems.length ? '; ' + problems.join(' | ') : '') + ')';
+}
+
+/** Run this once from the editor (select testCards, press Run) to grant permissions and check the e-card files are reachable. */
+function testCards() {
+  EVENTS.forEach(function (ev) {
+    const res = UrlFetchApp.fetch(ASSET_BASE + ev.card, { muteHttpExceptions: true });
+    Logger.log(ev.card + ' -> HTTP ' + res.getResponseCode() + ', ' + res.getBlob().getBytes().length + ' bytes');
+  });
+  Logger.log('Mail quota remaining today: ' + MailApp.getRemainingDailyQuota());
 }
 
 function tr_(k, v, color) {
