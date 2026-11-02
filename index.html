@@ -103,8 +103,8 @@ p.lead{font-size:22px;line-height:1.5}
 
 /* ---------- Welcome ---------- */
 .hero{padding-block:56px 40px;text-align:center}
-.hero-art{background:var(--green-deep)}
-.hero-art .painting{display:block;width:100%;height:auto;margin:0}
+.hero-art{background:var(--cream);padding:36px var(--gutter-r) 0 var(--gutter-l)}
+.hero-art .painting{display:block;width:min(880px,100%);height:auto;margin:0 auto}
 .hero{padding-top:24px}
 .hero p{margin-left:auto;margin-right:auto}
 .hero .names{margin-top:8px}
@@ -141,6 +141,8 @@ p.lead{font-size:22px;line-height:1.5}
 /* ---------- Story ---------- */
 .story-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
 .story-grid img{width:100%;height:auto;box-shadow:0 18px 50px -24px rgba(51,53,42,.45)}
+.story-grid .story-photo{max-width:480px;display:block;margin:0 auto}
+.story-grid > div:first-child{text-align:center}
 @media (max-width:820px){.story-grid{grid-template-columns:1fr;gap:34px}}
 .caption{font-family:var(--caps);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:12px}
 
@@ -354,7 +356,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
   <main>
     <!-- Welcome -->
     <section class="page active" id="page-welcome" role="tabpanel">
-      <div class="hero-art"><picture><source media="(max-width:640px)" srcset="assets/hero-night-m.jpg"><img class="painting" src="assets/hero-night.jpg" alt="The Langham, Custom House, Bangkok lit at night on the Chao Phraya, with the city skyline behind"></picture></div>
+      <div class="hero-art"><img class="painting" src="assets/garden.jpg" alt="Watercolour of the proposal in the rose garden at San Ysidro Ranch"></div>
       <div class="wrap hero">
         <p class="eyebrow">Together with their families</p>
         <h1 class="script names">Pat <span class="amp">&amp;</span> Pete</h1>
@@ -382,7 +384,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
       <div class="band">
         <div class="wrap story-grid">
           <div>
-            <img src="assets/garden.jpg" alt="Watercolour of the proposal in the rose garden at San Ysidro Ranch">
+            <img class="story-photo" src="assets/gallery/proposal-12.jpg" alt="Pat and Pete at San Ysidro Ranch after the proposal">
             <div class="caption">San Ysidro Ranch · Santa Barbara · 6th April 2026</div>
           </div>
           <div>
@@ -390,7 +392,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
             <h2 class="script">Where forever began</h2>
             <hr class="rule left">
             <p>On a spring afternoon in the rose garden of San Ysidro Ranch, beneath an arch in full bloom and with the Santa Ynez mountains looking on, Pete asked and Pat said yes.</p>
-            <p>The watercolour was painted from that moment, and it opens our invitation suite. We hope it opens this page for you in the same spirit: with a little sunshine, a lot of gratitude, and the promise of a very good party in January.</p>
+            <p>The watercolour painted from that moment opens our invitation suite and the welcome page of this site. We hope it greets you in the same spirit: with a little sunshine, a lot of gratitude, and the promise of a very good party in January.</p>
             <p class="small"><em>Pete, Pat: a few more lines about how you met, the first road trip in the Corniche, or the Leica and its favourite subject would sit beautifully here.</em></p>
           </div>
         </div>
