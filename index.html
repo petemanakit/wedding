@@ -105,6 +105,7 @@ p.lead{font-size:22px;line-height:1.5}
 .hero{padding-block:56px 40px;text-align:center}
 .hero-art{background:var(--cream);padding:36px var(--gutter-r) 0 var(--gutter-l)}
 .hero-art .painting{display:block;width:min(880px,100%);height:auto;margin:0 auto}
+@media (min-width:760px) and (orientation:landscape){.hero-art .painting{width:min(1120px,100%)}}
 .hero{padding-top:24px}
 .hero p{margin-left:auto;margin-right:auto}
 .hero .names{margin-top:8px}
@@ -356,7 +357,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
   <main>
     <!-- Welcome -->
     <section class="page active" id="page-welcome" role="tabpanel">
-      <div class="hero-art"><img class="painting" src="assets/garden.jpg" alt="Watercolour of the proposal in the rose garden at San Ysidro Ranch"></div>
+      <div class="hero-art"><picture><source media="(min-width:760px) and (orientation:landscape)" srcset="assets/garden-wide.jpg"><img class="painting" src="assets/garden.jpg" alt="Watercolour of the proposal in the rose garden at San Ysidro Ranch"></picture></div>
       <div class="wrap hero">
         <p class="eyebrow">Together with their families</p>
         <h1 class="script names">Pat <span class="amp">&amp;</span> Pete</h1>
