@@ -132,7 +132,8 @@ p.lead{font-size:22px;line-height:1.5}
 .ev-card .where{font-family:var(--caps);font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-top:12px;color:var(--ink)}
 .ev-card .time{font-size:19px;margin-top:6px;color:var(--muted)}
 .ev-card p{margin:18px auto 24px;max-width:46ch}
-.ev-modal .close{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:max(14px,env(safe-area-inset-right,0px));z-index:2;width:44px;height:44px;border-radius:50%;background:var(--cream);border:1px solid var(--rule);font:inherit;font-size:28px;line-height:1;color:var(--green);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px -8px rgba(0,0,0,.4)}
+.ev-modal .close{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);right:max(14px,env(safe-area-inset-right,0px));z-index:2;width:44px;height:44px;padding:0;border-radius:50%;background:var(--cream);border:1px solid var(--gold-light);color:var(--green);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px -8px rgba(0,0,0,.4)}
+.ev-modal .close svg{display:block}
 .ev-modal .close:hover{background:var(--gold-pale)}
 @media (prefers-reduced-motion:no-preference){.ev-card{animation:fade .35s ease both}}
 .ic::after{content:"";position:absolute;inset:6px;border:1px solid var(--gold-pale);pointer-events:none}
@@ -634,7 +635,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
   </main>
 
 <div class="ev-modal" id="evModal" hidden role="dialog" aria-modal="true" aria-labelledby="evTitle">
-    <button class="close" id="evClose" aria-label="Close">×</button>
+    <button class="close" id="evClose" aria-label="Close"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
     <div class="ev-card">
       <div class="ev-art"><img id="evCard" src="" alt=""></div>
       <div class="ev-body">
