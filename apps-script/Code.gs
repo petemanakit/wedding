@@ -1,5 +1,5 @@
 /**
- * Pat & Pete RSVP endpoint (v3.1: guest confirmation e-mail with e-cards; run testCards() once from the editor).
+ * Pat & Pete RSVP endpoint (v3.2: guest confirmation e-mail with e-cards; run testCards() once from the editor).
  * Paste into the Google Sheet: Extensions > Apps Script, then Deploy > Manage deployments > pencil > New version > Deploy.
  */
 const SHEET_NAME = 'Responses';
@@ -13,7 +13,7 @@ const HEADERS = ['Timestamp', 'Invitation', 'Household / name', 'Guest names', '
   'Headcount', 'Dietary requirements', 'Message', 'Kind', 'Drinks', 'Confirmation sent'];
 
 const EVENTS = [
-  { key: 'rehearsal', tier: 3, label: 'Rehearsal dinner', when: 'Saturday 16 January, 5.30 PM', where: 'Heritage Ballroom', card: 'ecard-rehearsal.jpg', cardName: 'Rehearsal Dinner.jpg' },
+  { key: 'rehearsal', tier: 3, label: 'Rehearsal dinner', when: 'Saturday 16 January, 5.00 PM arrival drinks, dinner at 5.30 PM', where: 'Heritage Ballroom', card: 'ecard-rehearsal.jpg', cardName: 'Rehearsal Dinner.jpg' },
   { key: 'vow',       tier: 2, label: 'Vow ceremony',     when: 'Sunday 17 January, 4.30 PM',   where: 'Riverside Lawn',    card: 'ecard-vow.jpg',       cardName: 'Vow Ceremony.jpg' },
   { key: 'evening',   tier: 1, label: 'Wedding celebration', when: 'Sunday 17 January, 6.30 PM', where: 'Heritage Ballroom', card: 'ecard-evening.jpg',  cardName: 'Wedding Celebration.jpg' },
 ];
