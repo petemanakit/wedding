@@ -7,7 +7,7 @@ const SHEET_NAME = 'Responses';
 const NOTIFY_EMAIL = 'peerakarn@ionenergy.ai';
 const HEADERS = ['Timestamp', 'Invitation', 'Household / name', 'Guest names', 'Email', 'Phone',
   'Rehearsal dinner (Sat 16 Jan)', 'Vow ceremony (Sun 4.30 PM)', 'Evening celebration (Sun 6.30 PM)',
-  'Headcount', 'Dietary requirements', 'Message', 'Kind'];
+  'Headcount', 'Dietary requirements', 'Message', 'Kind', 'Drinks'];
 
 function sheet_() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -45,7 +45,7 @@ function doPost(e) {
     const row = [
       new Date(), p.tier || '', p.household || '', p.guests || '', p.email || '', p.phone || '',
       p.rehearsal || '', p.vow || '', p.evening || '',
-      Number(p.headcount || 0), p.dietary || '', p.message || '', p.kind || 'New'
+      Number(p.headcount || 0), p.dietary || '', p.message || '', p.kind || 'New', p.drinks || ''
     ];
     const sh = sheet_(); const r = sh.getLastRow() + 1;
     sh.getRange(r, 2, 1, HEADERS.length - 1).setNumberFormat('@'); // text, so '+66…' is never read as a formula
@@ -67,7 +67,7 @@ function notify_(p) {
     'Invitation: tier ' + (p.tier || ''), 'Rehearsal dinner: ' + (p.rehearsal || 'n/a'),
     'Vow ceremony: ' + (p.vow || 'n/a'), 'Evening: ' + (p.evening || ''),
     'Email: ' + (p.email || ''), 'Phone: ' + (p.phone || ''), 'Dietary: ' + (p.dietary || ''),
-    'Message: ' + (p.message || ''), '', 'Sheet: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl()
+    'Drinks: ' + (p.drinks || ''), 'Message: ' + (p.message || ''), '', 'Sheet: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl()
   ];
   const verdict = (p.evening === 'Accept' || p.vow === 'Accept' || p.rehearsal === 'Accept') ? 'accepts' : 'declines';
   MailApp.sendEmail(NOTIFY_EMAIL, 'RSVP: ' + (p.household || 'Guest') + ' ' + verdict, lines.join('\n'));

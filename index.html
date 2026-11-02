@@ -273,6 +273,14 @@ dl.kv dd{margin:0}
 .seg label + label span{border-left:1px solid var(--rule)}
 .seg input:checked + span{background:var(--green);color:var(--cream)}
 .seg input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
+.drinks{border:0;padding:0;margin:26px 0 22px}
+.drinks legend{padding:0;margin-bottom:12px;color:var(--green);font-size:11px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips label{position:relative}
+.chips input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.chips span{display:block;padding:9px 14px;border:1px solid var(--rule);font-family:var(--caps);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);cursor:pointer;white-space:nowrap}
+.chips input:checked + span{background:var(--green);border-color:var(--green);color:var(--cream)}
+.chips input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .f-actions{text-align:center;margin-top:30px}
 .f-actions .small{margin:14px auto 0;min-height:1.4em}
@@ -375,7 +383,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
           <h2 class="script" id="inviteHeading">We would be honoured by your presence</h2>
           <p class="lead" style="margin-top:18px">Our celebration unfolds on the banks of the Chao Phraya, in the restored Custom House of 1888. The pages here hold everything you may need: the order of the day, how to find us, where to stay, and how to let us know you are coming.</p>
           <div class="invite-cards" id="inviteCards"></div>
-          <div style="margin-top:34px"><button class="btn" data-go="rsvp">Reply by 31 October 2026</button></div>
+          <div style="margin-top:34px"><button class="btn" data-go="rsvp">Reply by 30 November 2026</button></div>
         </div>
       </div>
     </section>
@@ -394,7 +402,6 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
             <hr class="rule left">
             <p>On a spring afternoon in the rose garden of San Ysidro Ranch, beneath an arch in full bloom and with the Santa Ynez mountains looking on, Pete asked and Pat said yes.</p>
             <p>The watercolour painted from that moment opens our invitation suite and the welcome page of this site. We hope it greets you in the same spirit: with a little sunshine, a lot of gratitude, and the promise of a very good party in January.</p>
-            <p class="small"><em>Pete, Pat: a few more lines about how you met, the first road trip in the Corniche, or the Leica and its favourite subject would sit beautifully here.</em></p>
           </div>
         </div>
       </div>
@@ -407,7 +414,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
           <p class="eyebrow">Order of the day</p>
           <h2 class="script">Schedule</h2>
           <div class="ornament">❦</div>
-          <figure class="frame"><img src="assets/custom-house.webp" alt="Watercolour of The Langham, Custom House, Bangkok, seen from the Chao Phraya River"><figcaption class="caption">The Custom House, as painted for our invitation</figcaption></figure>
+          <figure class="frame"><img src="assets/custom-house.webp" alt="Watercolour of The Langham, Custom House, Bangkok, seen from the Chao Phraya River"><figcaption class="caption">The Custom House, our venue for every event of the weekend</figcaption></figure>
         </div>
       </div>
 
@@ -415,7 +422,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
         <div class="wrap narrow">
           <div class="day-head"><h3>Saturday</h3><div class="caps-line">16th January 2027 · The eve</div></div>
           <ul class="tl">
-            <li class="key"><time>5.30 PM</time><div class="ev"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="28" cy="40" r="14"/><circle cx="28" cy="40" r="9"/><path d="M8 56V36"/><path d="M5 24v7a3 3 0 0 0 6 0v-7M8 24v10"/><path d="M48 56V38"/><path d="M48 38c-3-3-3-10 0-14 1 4 1 9 0 14z"/><path d="M49 5h14c-.5 8-3 12-7 13-4-1-6.5-5-7-13z"/><path d="M56 18v7M52 25h8"/></svg><h4>Rehearsal dinner</h4><div class="loc">Heritage Ballroom · The Langham, Custom House · Black tie</div><p>An intimate dinner for family and the wedding party on the evening before, in the same ballroom where we will celebrate the following night.</p></div></li>
+            <li class="key"><time>5.30 PM</time><div class="ev"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="28" cy="40" r="14"/><circle cx="28" cy="40" r="9"/><path d="M8 56V36"/><path d="M5 24v7a3 3 0 0 0 6 0v-7M8 24v10"/><path d="M48 56V38"/><path d="M48 38c-3-3-3-10 0-14 1 4 1 9 0 14z"/><path d="M49 5h14c-.5 8-3 12-7 13-4-1-6.5-5-7-13z"/><path d="M56 18v7M52 25h8"/></svg><h4>Rehearsal dinner</h4><div class="loc">Heritage Ballroom · The Langham, Custom House · Black tie</div><p>An intimate long-table dinner for our dearest family and friends.</p></div></li>
           </ul>
         </div>
       </div>
@@ -428,8 +435,8 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
             <li class="key celebration"><time>6.30 PM</time><div class="ev"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8l10 2c3 9 1 18-4 23l-1 1-3 16-6 2h14l-5-2 1-16-1-1C12 29 11 19 14 8z"/><path d="M50 8l-10 2c-3 9-1 18 4 23l1 1 3 16 6 2H40l5-2-1-16 1-1c7-4 8-14 5-25z"/><path d="M16 20c3 .5 6 .3 8-1M48 20c-3 .5-6 .3-8-1"/><circle cx="19" cy="14" r="1" fill="currentColor"/><circle cx="21" cy="26" r=".9" fill="currentColor"/><circle cx="45" cy="14" r="1" fill="currentColor"/><circle cx="43" cy="26" r=".9" fill="currentColor"/><path d="M32 10v-4M28 13l-2-3M36 13l2-3"/></svg><h4>Wedding celebration</h4><div class="loc">Heritage Ballroom &amp; Heritage Hall · Third floor</div><p>Doors open at 6.30 PM for the cocktail reception: cocktails, canapés and the river at sunset. The evening then unfolds in the ballroom as follows.</p>
               <ol class="sub">
                 <li><time>7.00 PM</time><div><b>Grand entrance &amp; dinner</b><span>A cocktail dinner across the ballroom and the hall, with toasts from our families and friends.</span></div></li>
-                <li><time>8.15 PM</time><div><b>Cake cutting</b><span>On the grand staircase landing between the second and third floors, so that every guest has a view.</span></div></li>
-                <li><time>10.00 PM</time><div><b>After-party</b><span>The band gives way to the DJ, until 2.00 AM. Dancing shoes encouraged; carriages at two.</span></div></li>
+                <li><time>8.15 PM</time><div><b>Cake cutting</b><span>In the Heritage Ballroom, followed by the first dance.</span></div></li>
+                <li><time>10.00 PM</time><div><b>After-party</b><span>The band gives way to the DJ, until midnight. Dancing shoes encouraged.</span></div></li>
               </ol>
             </div></li>
           </ul>
@@ -444,9 +451,9 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
             <div class="ornament">❦</div>
           </div>
           <div class="dress">
-            <div class="d" data-tier="2"><h4>Vow ceremony · 4.30 PM</h4><p>Black tie, the same as the evening, so that we move from the lawn to the ballroom without a change of dress. The lawn is grass, so a block heel is kinder than a stiletto.</p></div>
-            <div class="d"><h4>Gentlemen</h4><p>Black tie means a tuxedo: a dinner jacket with satin or grosgrain lapels, a bow tie and a white dress shirt. A dark lounge suit with a black necktie is not quite the same, and we would love to see you in the real thing.</p></div>
-            <div class="d"><h4>Ladies</h4><p>Elegant evening gown, floor length preferred. January evenings by the river are pleasantly cool, around 24 °C, so a wrap is welcome but not essential.</p></div>
+            <div class="d" data-tier="2"><h4>Vow ceremony · 4.30 PM</h4><p>Black tie, as for the evening. The lawn is grass, so a block heel is kinder than a stiletto.</p></div>
+            <div class="d"><h4>Gentlemen</h4><p>A tuxedo, please: dinner jacket, bow tie and white dress shirt.</p></div>
+            <div class="d"><h4>Ladies</h4><p>A floor-length evening gown. Evenings by the river are around 24 °C, so a wrap is welcome.</p></div>
           </div>
         </div>
       </div>
@@ -475,7 +482,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
               <h3 class="caps">How to arrive</h3>
               <dl class="kv">
                 <div><dt>By car</dt><dd>Enter from Charoen Krung Road at Soi 36 (Trok Rong Phasi), beside the French Embassy. Valet parking will be available at the hotel entrance.</dd></div>
-                <div><dt>By BTS</dt><dd>Saphan Taksin station (Silom line), then five minutes by taxi, or a short walk along Charoen Krung Road.</dd></div>
+                <div><dt>By Grab or Bolt</dt><dd>Ride-hailing is the easiest way across town. Set the destination to The Langham, Custom House, Bangkok (Charoen Krung Soi 36) and the car will bring you to the hotel entrance.</dd></div>
                                 <div><dt>From BKK</dt><dd>Suvarnabhumi Airport is about 45 minutes by car outside peak hours; Don Mueang about an hour.</dd></div>
               </dl>
             </div>
@@ -483,7 +490,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
 
           <div style="margin-top:64px">
             <h3 class="caps">Where to stay</h3>
-            <p>The Langham has 75 rooms and suites and will be newly opened in January. A special room rate has been arranged for our guests. To reserve, please write directly to Khun Aom (Sumittra Smatthanawin), Director of Catering &amp; Event Sales, at <span class="addr-line">sumittra.s@langhamhotels.com</span>, mentioning the Pat &amp; Pete wedding on 17th January. The riverside also offers these fine neighbours, all within ten minutes of the Custom House.</p>
+            <p>The Langham has 75 rooms and suites and will be newly opened in January. A special room rate has been arranged for our guests. To reserve, please write directly to Khun Aom (Sumittra Smatthanawin), Director of Catering &amp; Event Sales, at <span class="addr-line">sumittra.s@langhamhotels.com</span>, mentioning the Pat &amp; Pete wedding on 17th January. The riverside also offers these fine neighbours, all within ten minutes of the Custom House, and two further choices for those who prefer to stay nearer the city centre.</p>
             <ul class="hotels">
               <li><a href="https://www.langhamhotels.com/en/the-langham/bangkok/" target="_blank" rel="noopener"><figure><img src="assets/hotel-langham.jpg" alt="The Langham, Custom House, Bangkok lit at night on the Chao Phraya" loading="lazy"></figure><div><b>The Langham, Custom House</b><span>Venue · Charoen Krung 36</span><em>Wedding rate: e-mail Khun Aom</em></div><span class="visit">Visit website</span></a></li>
               <li><a href="https://www.mandarinoriental.com/en/bangkok/chao-phraya-river" target="_blank" rel="noopener"><figure><img src="assets/hotel-mandarin-oriental.jpg" alt="Mandarin Oriental, Bangkok from the river at dusk" loading="lazy"></figure><div><b>Mandarin Oriental</b><span>Oriental Avenue · 3 min</span><em>The grande dame of the river</em></div><span class="visit">Visit website</span></a></li>
@@ -491,6 +498,8 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
               <li><a href="https://capellahotels.com/en/capella-bangkok" target="_blank" rel="noopener"><figure><img src="assets/hotel-capella.jpg" alt="Capella Bangkok seen across the river" loading="lazy"></figure><div><b>Capella Bangkok</b><span>Charoen Krung · 8 min</span><em>Contemporary, riverside villas and suites</em></div><span class="visit">Visit website</span></a></li>
               <li><a href="https://www.fourseasons.com/bangkok/" target="_blank" rel="noopener"><figure><img src="assets/hotel-four-seasons.jpg" alt="Four Seasons Hotel Bangkok at Chao Phraya River terrace and skyline" loading="lazy"></figure><div><b>Four Seasons at Chao Phraya</b><span>Charoen Krung · 8 min</span><em>Next to Capella, extensive gardens</em></div><span class="visit">Visit website</span></a></li>
               <li><a href="https://www.peninsula.com/en/bangkok/5-star-luxury-hotel-riverside" target="_blank" rel="noopener"><figure><img src="assets/hotel-peninsula.jpg" alt="The Peninsula Bangkok tower across the Chao Phraya" loading="lazy"></figure><div><b>The Peninsula Bangkok</b><span>Thonburi bank · 10 min</span><em>Across the river, every room faces the water</em></div><span class="visit">Visit website</span></a></li>
+              <li><a href="https://www.oriental-residence.com/bangkok" target="_blank" rel="noopener"><figure><img src="assets/hotel-oriental-residence.jpg" alt="Oriental Residence Bangkok tower on Wireless Road at dusk" loading="lazy"></figure><div><b>Oriental Residence Bangkok</b><span>Wireless Road · 20 min</span><em>Serviced suites beside Lumpini Park, in the heart of the city</em></div><span class="visit">Visit website</span></a></li>
+              <li><a href="https://www.marriott.com/en-us/hotels/bkkxr-the-st-regis-bangkok/overview/" target="_blank" rel="noopener"><figure><img src="assets/hotel-st-regis.jpg" alt="The St. Regis Bangkok above the Royal Bangkok Sports Club at dusk" loading="lazy"></figure><div><b>The St. Regis Bangkok</b><span>Rajadamri · 20 min</span><em>Overlooking the racecourse, steps from Ratchadamri BTS</em></div><span class="visit">Visit website</span></a></li>
             </ul>
           </div>
 
@@ -518,17 +527,29 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
             <div class="ornament">❦</div>
           </div>
           <div class="rsvp-card">
-            <p class="deadline">Please reply by 31 October 2026</p>
+            <p class="deadline">Please reply by 30 November 2026</p>
             <p class="lead" style="margin:0 auto">One reply per household is all we need.</p>
             <form id="rsvpForm" novalidate autocomplete="on">
               <div class="f-grid">
-                <label class="f"><span>Your name, or household</span><input id="r-household" name="household" type="text" required autocomplete="name" placeholder="e.g. Khun Somchai &amp; Khun Malee"></label>
+                <label class="f wide"><span>Names of everyone attending</span><input id="r-guests" name="guests" type="text" required autocomplete="name" placeholder="e.g. Khun Somchai &amp; Khun Malee Jaidee"></label>
                 <label class="f"><span>E-mail</span><input id="r-email" name="email" type="email" required autocomplete="email" placeholder="so we can confirm"></label>
                 <label class="f"><span>Mobile (optional)</span><input id="r-phone" name="phone" type="tel" autocomplete="tel" placeholder="+66"></label>
                 <label class="f"><span>Number attending, including you</span><select id="r-headcount" name="headcount"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></label>
-                <label class="f wide"><span>Names of everyone attending</span><input id="r-guests" name="guests" type="text" placeholder="as they should appear on place cards"></label>
               </div>
               <fieldset class="events" id="rsvpEventsFs"><legend class="caps-line">Will you join us?</legend><div id="rsvpEvents"></div></fieldset>
+              <fieldset class="drinks"><legend class="caps-line">What would you like to drink? Tick all that apply</legend>
+                <div class="chips">
+                  <label><input type="checkbox" name="drinks" value="Non-alcoholic"><span>Non-alcoholic</span></label>
+                  <label><input type="checkbox" name="drinks" value="Champagne / sparkling"><span>Champagne &amp; sparkling</span></label>
+                  <label><input type="checkbox" name="drinks" value="White wine"><span>White wine</span></label>
+                  <label><input type="checkbox" name="drinks" value="Red wine"><span>Red wine</span></label>
+                  <label><input type="checkbox" name="drinks" value="Beer"><span>Beer</span></label>
+                  <label><input type="checkbox" name="drinks" value="Whisky"><span>Whisky</span></label>
+                  <label><input type="checkbox" name="drinks" value="Gin"><span>Gin</span></label>
+                  <label><input type="checkbox" name="drinks" value="Vodka"><span>Vodka</span></label>
+                  <label><input type="checkbox" name="drinks" value="Cocktails"><span>Cocktails</span></label>
+                </div>
+              </fieldset>
               <div class="f-grid">
                 <label class="f wide"><span>Dietary requirements or allergies</span><input id="r-dietary" name="dietary" type="text" placeholder="vegetarian, halal, shellfish, none"></label>
                 <label class="f wide"><span>A note for Pat &amp; Pete (optional)</span><textarea id="r-message" name="message" rows="3"></textarea></label>
@@ -597,9 +618,8 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
           </div>
           <div class="faq">
             <details><summary>What should I wear?</summary><p>Black tie throughout: a tuxedo for gentlemen and an elegant evening gown for ladies, for the rehearsal dinner, the vow ceremony and the evening alike. The Schedule page has a little more detail.</p></details>
-            <details><summary>May I bring a guest?</summary><p>Your invitation is addressed to the guests we are able to welcome. If a plus-one is included, the reply form will show a space for their name. Do write to us if you are unsure.</p></details>
-            <details><summary>Are children welcome?</summary><p>We adore your little ones, but the evening celebration is for grown-ups so that everyone may relax and stay late. Please let us know if this creates any difficulty.</p></details>
-            <details><summary>Gifts</summary><p>Your presence, in Bangkok and in black tie, is the gift. For those who insist, a traditional envelope may be offered at the reception; there is no registry.</p></details>
+            <details><summary>May I bring a guest?</summary><p>Your invitation is addressed to the guests we are able to welcome, and names any children who are included. Do write to us if you are unsure.</p></details>
+            <details><summary>Gifts</summary><p>Your presence in Bangkok is the gift. For those who insist, a traditional envelope may be offered at the reception; there is no registry.</p></details>
             <details><summary>Where do I park?</summary><p>Valet parking will be available at The Langham entrance on Charoen Krung Soi 36. Taxis and Grab are plentiful at the end of the evening, and the hotel concierge will be glad to call one for you.</p></details>
             <details><summary>What if it rains?</summary><p>January is Bangkok's driest month. Should the river surprise us, the vow ceremony will move indoors and we will let you know on arrival.</p></details>
             <details><summary>Photographs and social media</summary><p>We have a wonderful photographer and ask only that phones stay away during the vows. Afterwards, please share freely; we will post our hashtag here nearer the day.</p></details>
@@ -642,9 +662,9 @@ const CONFIG = {
   rsvpSheet: "https://docs.google.com/spreadsheets/d/1n9p-fajzj4nRqHEHkiN13rMsJ_vc_g6TPVQ7y5c8q-Y/edit",
   weddingStart: "2027-01-17T16:30:00+07:00",
   events: {
-    rehearsal: { tier: 3, when: "Saturday, 16th January", title: "Rehearsal dinner", where: "Heritage Ballroom", time: "5.30 PM", detail: "An intimate dinner for family and the wedding party on the evening before, in the same ballroom where we will celebrate the following night. Black tie." },
+    rehearsal: { tier: 3, when: "Saturday, 16th January", title: "Rehearsal dinner", where: "Heritage Ballroom", time: "5.30 PM", detail: "An intimate long-table dinner for our dearest family and friends, on the eve of the wedding. Black tie." },
     vow:       { tier: 2, when: "Sunday, 17th January", title: "Vow ceremony", where: "Riverside Lawn", time: "4.30 PM", detail: "Please be seated by 4.15 PM. We will exchange our vows on the lawn by the river as the afternoon light softens, followed by a glass of champagne before the evening begins." },
-    evening:   { tier: 1, when: "Sunday, 17th January", title: "Wedding celebration", where: "Heritage Ballroom", time: "6.30 PM · Cocktail reception", detail: "Doors open at 6.30 PM for cocktails and canapés with the river at sunset, followed by our grand entrance at 7.00 PM, dinner and toasts, cake cutting on the grand staircase, and the after-party until 2.00 AM." }
+    evening:   { tier: 1, when: "Sunday, 17th January", title: "Wedding celebration", where: "Heritage Ballroom", time: "6.30 PM · Cocktail reception", detail: "Doors open at 6.30 PM for cocktails and canapés with the river at sunset, followed by our grand entrance at 7.00 PM, dinner and toasts, and the after-party until midnight." }
   }
 };
 
@@ -735,7 +755,10 @@ $("#rsvpForm").addEventListener("submit", async (e) => {
   if (!form.checkValidity()) { form.reportValidity(); note.textContent = "Please complete the highlighted fields and choose a reply for each event."; note.classList.add("err"); return; }
   if (!CONFIG.rsvpEndpoint) return;
   const data = new URLSearchParams();
-  for (const [k, v] of new FormData(form)) data.set(k, /^[=+\-@]/.test(String(v)) ? " " + v : v); // keep Sheets from reading "+66…" as a formula
+  const fd = new FormData(form);
+  for (const [k, v] of fd) if (k !== "drinks") data.set(k, /^[=+\-@]/.test(String(v)) ? " " + v : v); // keep Sheets from reading "+66…" as a formula
+  data.set("drinks", fd.getAll("drinks").join(", "));
+  data.set("household", String(fd.get("guests") || "").split(/,|&| and /i)[0].trim());
   data.set("tier", String(tier)); data.set("kind", store.get("pp-rsvp-sent") ? "Update" : "New");
   btn.disabled = true; btn.textContent = "Sending…"; note.textContent = "";
   try {
