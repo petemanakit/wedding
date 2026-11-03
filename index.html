@@ -109,6 +109,10 @@ p.lead{font-size:22px;line-height:1.5}
 .hero{padding-top:24px}
 .hero p{margin-left:auto;margin-right:auto}
 .hero .names{margin-top:8px}
+.hero h1.full{font-family:var(--caps);font-weight:500;color:var(--green);text-transform:uppercase;letter-spacing:.15em;line-height:1.4;font-size:clamp(19px,3.2vw,37px);margin:16px 0 0;text-wrap:balance}
+.hero h1.full span{display:block}
+.hero h1.full .and{font-weight:400;font-size:.9em;letter-spacing:0;color:var(--gold);line-height:1.5}
+@media (max-width:600px){.hero h1.full{letter-spacing:.1em}}
 .hero .amp{font-family:var(--amp);font-size:.42em;color:var(--gold);margin:0 .18em;position:relative;top:-.12em;letter-spacing:0}
 .amp2{font-family:var(--amp);color:var(--gold);font-size:.6em;margin:0 .14em;position:relative;top:-.1em}
 .hero .sub{font-family:var(--caps);font-size:13px;letter-spacing:.3em;text-transform:uppercase;margin-top:18px;color:var(--ink);line-height:2}
@@ -376,8 +380,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
     <section class="page active" id="page-welcome" role="tabpanel">
       <div class="hero-art"><picture><source media="(min-width:760px) and (orientation:landscape)" srcset="assets/garden-wide.jpg"><img class="painting" src="assets/garden.jpg" alt="Watercolour of the proposal in the rose garden at San Ysidro Ranch"></picture></div>
       <div class="wrap hero">
-        <h1 class="script names">Pat <span class="amp">&amp;</span> Pete</h1>
-        <div class="caps-line" style="margin-top:10px">Patcharanan Pipatananon &nbsp;·&nbsp; Peerakarn Manakit</div>
+        <h1 class="full names"><span>Patcharanan Pipatananon</span><span class="and">&amp;</span><span>Peerakarn Manakit</span></h1>
         <p class="eyebrow" style="margin:18px auto 0;max-width:none">Together with their families</p>
         <div class="sub" style="margin-top:12px">Sunday, 17th January 2027<br>The Langham, Custom House, Bangkok</div>
         <div class="countdown" id="countdown" aria-label="Countdown to the wedding">
