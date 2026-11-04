@@ -543,7 +543,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
             <p class="lead" style="margin:0 auto">One reply per household is all we need.</p>
             <form id="rsvpForm" novalidate autocomplete="on">
               <div class="f-grid">
-                <label class="f wide"><span>Names of everyone attending</span><input id="r-guests" name="guests" type="text" required autocomplete="name" placeholder="e.g. Khun Peter &amp; Khun Patty Manakit"></label>
+                <label class="f wide"><span>Full names of everyone attending, first name and surname for each</span><input id="r-guests" name="guests" type="text" required autocomplete="name" placeholder="e.g. Peter Manakit &amp; Patty Manakit"></label>
                 <label class="f"><span>E-mail</span><input id="r-email" name="email" type="email" required autocomplete="email" placeholder="so we can confirm"></label>
                 <label class="f"><span>Mobile (optional)</span><input id="r-phone" name="phone" type="tel" autocomplete="tel" placeholder="+66"></label>
                 <label class="f"><span>Number attending, including you</span><select id="r-headcount" name="headcount"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></label>
@@ -763,11 +763,15 @@ function applyTier(){
 }
 
 /* ---- RSVP submit ---- */
+$("#r-guests").addEventListener("input", (e) => e.target.setCustomValidity(""));
 $("#rsvpForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const form = e.currentTarget, note = $("#rsvpNote"), btn = $("#rsvpBtn");
   note.classList.remove("err");
   if (!form.checkValidity()) { form.reportValidity(); note.textContent = "Please complete the highlighted fields and choose a reply for each event."; note.classList.add("err"); return; }
+  const guestsEl = $("#r-guests");
+  const shortName = guestsEl.value.split(/\s*(?:,|&|\band\b|\n)\s*/i).filter(Boolean).some(n => n.trim().split(/\s+/).length < 2);
+  if (shortName) { guestsEl.setCustomValidity("Please give first name and surname for each guest."); form.reportValidity(); note.textContent = "Please give first name and surname for each guest, e.g. Peter Manakit & Patty Manakit."; note.classList.add("err"); guestsEl.focus(); return; }
   if (!CONFIG.rsvpEndpoint) return;
   const data = new URLSearchParams();
   const fd = new FormData(form);
