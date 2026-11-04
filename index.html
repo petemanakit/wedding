@@ -297,6 +297,7 @@ dl.kv dd{margin:0}
 .chips label[data-rank] span::before{content:attr(data-rank) ". ";color:var(--gold-pale)}
 .chips label[data-rank="1"] span::before{content:"1. "}
 .chips label[data-rank="2"] span::before{content:"2. "}
+.chips label[data-rank="3"] span::before{content:"3. "}
 .drinks-note{font-size:15px;color:var(--muted);margin-top:10px;min-height:1.2em}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .f-actions{text-align:center;margin-top:30px}
@@ -553,7 +554,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
                 <label class="f"><span>Number attending, including you</span><select id="r-headcount" name="headcount"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></label>
               </div>
               <fieldset class="events" id="rsvpEventsFs"><legend class="caps-line">Will you join us?</legend><div id="rsvpEvents"></div></fieldset>
-              <fieldset class="drinks" id="drinksSet"><legend class="caps-line">What will you really be drinking? Choose your top two, in order</legend>
+              <fieldset class="drinks" id="drinksSet"><legend class="caps-line">What will you really be drinking? Choose your top three, in order</legend>
                 <div class="chips" id="drinkChips">
                   <label><input type="checkbox" name="drinks" value="Non-alcoholic"><span>Non-alcoholic</span></label>
                   <label><input type="checkbox" name="drinks" value="Champagne / sparkling"><span>Champagne &amp; sparkling</span></label>
@@ -769,16 +770,16 @@ function applyTier(){
 
 /* ---- RSVP submit ---- */
 $("#r-guests").addEventListener("input", (e) => e.target.setCustomValidity(""));
-const DRINK_MAX = 2, drinkOrder = [];
+const DRINK_MAX = 3, drinkOrder = [];
 const drinkNote = $("#drinksNote");
 function paintDrinks() {
   $$("#drinkChips label").forEach(l => { const i = drinkOrder.indexOf(l.querySelector("input").value); if (i >= 0) l.dataset.rank = i + 1; else delete l.dataset.rank; });
-  drinkNote.textContent = drinkOrder.length === 0 ? "Your first choice, then your second." : drinkOrder.length === 1 ? "First choice noted; now your second, if you have one." : "Thank you. Tap a choice again to change it.";
+  drinkNote.textContent = drinkOrder.length === 0 ? "Your first choice, then your second and third." : drinkOrder.length < DRINK_MAX ? (drinkOrder.length === 1 ? "First choice noted; now your second, if you have one." : "Two noted; a third, if you like.") : "Thank you. Tap a choice again to change it.";
 }
 $("#drinkChips").addEventListener("change", (e) => {
   const cb = e.target; if (cb.type !== "checkbox") return;
   if (cb.checked) {
-    if (drinkOrder.length >= DRINK_MAX) { cb.checked = false; paintDrinks(); drinkNote.textContent = "Two choices only, please: untick one to swap it."; return; }
+    if (drinkOrder.length >= DRINK_MAX) { cb.checked = false; paintDrinks(); drinkNote.textContent = "Three choices only, please: untick one to swap it."; return; }
     drinkOrder.push(cb.value);
   } else drinkOrder.splice(drinkOrder.indexOf(cb.value), 1);
   paintDrinks();
