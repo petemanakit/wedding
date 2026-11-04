@@ -294,6 +294,10 @@ dl.kv dd{margin:0}
 .chips span{display:block;padding:9px 14px;border:1px solid var(--rule);font-family:var(--caps);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);cursor:pointer;white-space:nowrap}
 .chips input:checked + span{background:var(--green);border-color:var(--green);color:var(--cream)}
 .chips input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
+.chips label[data-rank] span::before{content:attr(data-rank) ". ";color:var(--gold-pale)}
+.chips label[data-rank="1"] span::before{content:"1. "}
+.chips label[data-rank="2"] span::before{content:"2. "}
+.drinks-note{font-size:15px;color:var(--muted);margin-top:10px;min-height:1.2em}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .f-actions{text-align:center;margin-top:30px}
 .f-actions .small{margin:14px auto 0;min-height:1.4em}
@@ -549,8 +553,8 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
                 <label class="f"><span>Number attending, including you</span><select id="r-headcount" name="headcount"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></label>
               </div>
               <fieldset class="events" id="rsvpEventsFs"><legend class="caps-line">Will you join us?</legend><div id="rsvpEvents"></div></fieldset>
-              <fieldset class="drinks"><legend class="caps-line">What would you like to drink? Tick all that apply</legend>
-                <div class="chips">
+              <fieldset class="drinks" id="drinksSet"><legend class="caps-line">What will you really be drinking? Choose your top two, in order</legend>
+                <div class="chips" id="drinkChips">
                   <label><input type="checkbox" name="drinks" value="Non-alcoholic"><span>Non-alcoholic</span></label>
                   <label><input type="checkbox" name="drinks" value="Champagne / sparkling"><span>Champagne &amp; sparkling</span></label>
                   <label><input type="checkbox" name="drinks" value="White wine"><span>White wine</span></label>
@@ -561,6 +565,7 @@ footer .d{font-family:var(--caps);font-size:11px;letter-spacing:.32em;margin-top
                   <label><input type="checkbox" name="drinks" value="Vodka"><span>Vodka</span></label>
                   <label><input type="checkbox" name="drinks" value="Cocktails"><span>Cocktails</span></label>
                 </div>
+                <div class="drinks-note" id="drinksNote" aria-live="polite"></div>
               </fieldset>
               <div class="f-grid">
                 <label class="f wide"><span>Dietary requirements or allergies</span><input id="r-dietary" name="dietary" type="text" placeholder="vegetarian, halal, shellfish, none"></label>
@@ -764,6 +769,21 @@ function applyTier(){
 
 /* ---- RSVP submit ---- */
 $("#r-guests").addEventListener("input", (e) => e.target.setCustomValidity(""));
+const DRINK_MAX = 2, drinkOrder = [];
+const drinkNote = $("#drinksNote");
+function paintDrinks() {
+  $$("#drinkChips label").forEach(l => { const i = drinkOrder.indexOf(l.querySelector("input").value); if (i >= 0) l.dataset.rank = i + 1; else delete l.dataset.rank; });
+  drinkNote.textContent = drinkOrder.length === 0 ? "Your first choice, then your second." : drinkOrder.length === 1 ? "First choice noted; now your second, if you have one." : "Thank you. Tap a choice again to change it.";
+}
+$("#drinkChips").addEventListener("change", (e) => {
+  const cb = e.target; if (cb.type !== "checkbox") return;
+  if (cb.checked) {
+    if (drinkOrder.length >= DRINK_MAX) { cb.checked = false; paintDrinks(); drinkNote.textContent = "Two choices only, please: untick one to swap it."; return; }
+    drinkOrder.push(cb.value);
+  } else drinkOrder.splice(drinkOrder.indexOf(cb.value), 1);
+  paintDrinks();
+});
+paintDrinks();
 $("#rsvpForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const form = e.currentTarget, note = $("#rsvpNote"), btn = $("#rsvpBtn");
@@ -776,7 +796,7 @@ $("#rsvpForm").addEventListener("submit", async (e) => {
   const data = new URLSearchParams();
   const fd = new FormData(form);
   for (const [k, v] of fd) if (k !== "drinks") data.set(k, /^[=+\-@]/.test(String(v)) ? " " + v : v); // keep Sheets from reading "+66…" as a formula
-  data.set("drinks", fd.getAll("drinks").join(", "));
+  data.set("drinks", drinkOrder.map((v, i) => (i + 1) + ". " + v).join(", "));
   data.set("household", String(fd.get("guests") || "").split(/,|&| and /i)[0].trim());
   data.set("tier", String(tier)); data.set("kind", store.get("pp-rsvp-sent") ? "Update" : "New");
   btn.disabled = true; btn.textContent = "Sending…"; note.textContent = "";
